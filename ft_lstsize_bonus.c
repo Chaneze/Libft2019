@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charoua <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 19:30:22 by charoua           #+#    #+#             */
-/*   Updated: 2019/10/11 15:34:54 by charoua          ###   ########.fr       */
+/*   Created: 2019/10/09 18:11:27 by charoua           #+#    #+#             */
+/*   Updated: 2019/10/11 18:36:52 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-int		ft_atoi(const char *str)
+int		ft_lstsize(t_list *lst)
 {
-	size_t	i;
-	int		nb;
+	int		i;
 
 	i = 0;
-	nb = 0;
-	while ((*str >= 9 && *str <= 13) || *str == ' ')
-		str++;
-	if (*str == '-' || *str == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	while (lst)
 	{
-		nb = nb * 10 + str[i] - '0';
+		lst = lst->next;
 		i++;
 	}
-	if (*str == '-')
-		nb = -nb;
-	return (nb);
+	return (i);
 }

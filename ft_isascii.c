@@ -6,16 +6,11 @@
 /*   By: charoua <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 18:54:15 by charoua           #+#    #+#             */
-/*   Updated: 2019/10/07 18:54:44 by charoua          ###   ########.fr       */
+/*   Updated: 2019/10/11 15:33:02 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_isascii(int c)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	else
-		return (0);
+	return (c >= 0 && c <= 127);
 }

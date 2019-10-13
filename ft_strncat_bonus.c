@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charoua <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 19:30:22 by charoua           #+#    #+#             */
-/*   Updated: 2019/10/11 15:34:54 by charoua          ###   ########.fr       */
+/*   Created: 2019/10/11 11:28:28 by caroua            #+#    #+#             */
+/*   Updated: 2019/10/11 20:47:15 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <string.h>
+#include "libft.h"
 
-int		ft_atoi(const char *str)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	size_t	i;
-	int		nb;
+	size_t i;
+	size_t j;
 
 	i = 0;
-	nb = 0;
-	while ((*str >= 9 && *str <= 13) || *str == ' ')
-		str++;
-	if (*str == '-' || *str == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	j = 0;
+	while (s1[i] != '\0')
 	{
-		nb = nb * 10 + str[i] - '0';
 		i++;
 	}
-	if (*str == '-')
-		nb = -nb;
-	return (nb);
+	while (s2[j] != '\0' && j < n)
+	{
+		s1[i] = s2[j];
+		i++;
+		j++;
+	}
+	s1[i] = '\0';
+	return (s1);
 }

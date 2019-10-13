@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charoua <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 17:37:55 by charoua           #+#    #+#             */
-/*   Updated: 2019/10/11 20:55:31 by charoua          ###   ########.fr       */
+/*   Created: 2019/10/09 14:13:06 by charoua           #+#    #+#             */
+/*   Updated: 2019/10/11 20:59:22 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t i;
+	char	*new;
+	char	*begin;
+	size_t	length;
 
-	i = 0;
-	while (i < n)
+	if (s1 && !s2)
+		return (ft_strdup(s1));
+	else if (!s1 && s2)
+		return (ft_strdup(s2));
+	else if (s1 && s2)
 	{
-		if (((unsigned char *)s)[i] == (unsigned char)c)
+		length = ft_strlen(s1) + ft_strlen(s2) + 1;
+		if ((new = (char *)malloc(sizeof(char) * length)))
 		{
-			return ((void *)s + i);
+			begin = new;
+			while (*s1)
+				*new++ = *s1++;
+			while (*s2)
+				*new++ = *s2++;
+			*new = '\0';
+			return (begin);
 		}
-		i++;
 	}
 	return (NULL);
 }

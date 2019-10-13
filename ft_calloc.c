@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charoua <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 19:30:22 by charoua           #+#    #+#             */
-/*   Updated: 2019/10/11 15:34:54 by charoua          ###   ########.fr       */
+/*   Created: 2019/10/09 12:01:54 by charoua           #+#    #+#             */
+/*   Updated: 2019/10/11 20:54:36 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
-int		ft_atoi(const char *str)
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	i;
-	int		nb;
+	void	*dst;
+	size_t	len;
 
-	i = 0;
-	nb = 0;
-	while ((*str >= 9 && *str <= 13) || *str == ' ')
-		str++;
-	if (*str == '-' || *str == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	len = count * size;
+	dst = NULL;
+	if (len != 0)
 	{
-		nb = nb * 10 + str[i] - '0';
-		i++;
+		dst = malloc(len);
+		if (dst != NULL)
+			ft_memset(dst, 0, len);
 	}
-	if (*str == '-')
-		nb = -nb;
-	return (nb);
+	return (dst);
 }

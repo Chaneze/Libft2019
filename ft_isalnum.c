@@ -6,7 +6,7 @@
 /*   By: charoua <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 18:53:18 by charoua           #+#    #+#             */
-/*   Updated: 2019/10/07 18:53:36 by charoua          ###   ########.fr       */
+/*   Updated: 2019/10/11 20:54:10 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,5 @@
 
 int	ft_isalnum(int c)
 {
-	if (ft_isalpha(c) == 1 || ft_isdigit(c) == 1)
-		return (1);
-	else
-		return (0);
+	return (ft_isalpha(c) == TRUE || ft_isdigit(c) == TRUE);
 }

@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charoua <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 19:30:22 by charoua           #+#    #+#             */
-/*   Updated: 2019/10/11 15:34:54 by charoua          ###   ########.fr       */
+/*   Created: 2019/10/09 14:14:18 by charoua           #+#    #+#             */
+/*   Updated: 2019/10/11 21:00:00 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
-int		ft_atoi(const char *str)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
-	int		nb;
+	char			*dst;
+	unsigned int	i;
 
 	i = 0;
-	nb = 0;
-	while ((*str >= 9 && *str <= 13) || *str == ' ')
-		str++;
-	if (*str == '-' || *str == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	if (!(dst = (char *)malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	dst[len] = '\0';
+	while (len > 0)
 	{
-		nb = nb * 10 + str[i] - '0';
+		dst[i] = s[start + i];
+		len--;
 		i++;
 	}
-	if (*str == '-')
-		nb = -nb;
-	return (nb);
+	return (dst);
 }

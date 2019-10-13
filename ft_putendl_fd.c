@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charoua <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 19:30:22 by charoua           #+#    #+#             */
-/*   Updated: 2019/10/11 15:34:54 by charoua          ###   ########.fr       */
+/*   Created: 2019/10/09 14:11:53 by charoua           #+#    #+#             */
+/*   Updated: 2019/10/11 20:57:32 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <unistd.h>
+#include "libft.h"
 
-int		ft_atoi(const char *str)
+void	ft_putendl_fd(char *s, int fd)
 {
-	size_t	i;
-	int		nb;
-
-	i = 0;
-	nb = 0;
-	while ((*str >= 9 && *str <= 13) || *str == ' ')
-		str++;
-	if (*str == '-' || *str == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	if (s != NULL)
 	{
-		nb = nb * 10 + str[i] - '0';
-		i++;
+		ft_putstr_fd(s, fd);
+		ft_putchar_fd('\n', fd);
 	}
-	if (*str == '-')
-		nb = -nb;
-	return (nb);
 }

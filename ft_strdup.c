@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charoua <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 19:30:22 by charoua           #+#    #+#             */
-/*   Updated: 2019/10/11 15:34:54 by charoua          ###   ########.fr       */
+/*   Created: 2019/10/09 14:12:46 by charoua           #+#    #+#             */
+/*   Updated: 2019/10/11 20:59:26 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
-int		ft_atoi(const char *str)
+char	*ft_strdup(const char *s1)
 {
-	size_t	i;
-	int		nb;
+	char	*dst;
+	size_t	len;
 
-	i = 0;
-	nb = 0;
-	while ((*str >= 9 && *str <= 13) || *str == ' ')
-		str++;
-	if (*str == '-' || *str == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		nb = nb * 10 + str[i] - '0';
-		i++;
-	}
-	if (*str == '-')
-		nb = -nb;
-	return (nb);
+	len = ft_strlen(s1);
+	if (!(dst = (char *)malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	dst[len] = '\0';
+	while (len--)
+		dst[len] = s1[len];
+	return (dst);
 }

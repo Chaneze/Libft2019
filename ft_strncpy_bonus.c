@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charoua <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: caroua <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 18:41:17 by charoua           #+#    #+#             */
-/*   Updated: 2019/10/11 20:56:01 by charoua          ###   ########.fr       */
+/*   Created: 2019/10/10 20:49:30 by caroua            #+#    #+#             */
+/*   Updated: 2019/10/11 20:48:01 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	size_t length;
+	char *tmpdst;
 
-	length = 0;
-	while (s[length] != '\0')
-		length++;
-	return (length);
+	tmpdst = dst;
+	while (*src != '\0' && len > 0)
+	{
+		*tmpdst++ = *src++;
+		len--;
+	}
+	while (len > 0)
+	{
+		*tmpdst++ = '\0';
+		len--;
+	}
+	return (dst);
 }

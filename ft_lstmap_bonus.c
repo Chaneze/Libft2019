@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charoua <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 19:17:21 by charoua           #+#    #+#             */
-/*   Updated: 2019/10/10 17:00:06 by charoua          ###   ########.fr       */
+/*   Created: 2019/10/09 19:06:44 by charoua           #+#    #+#             */
+/*   Updated: 2019/10/09 19:24:06 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(void *))
 {
-	size_t length;
-	size_t i;
+	t_list		*result;
+	t_list		*first;
+	t_list		*elem;
 
-	length = ft_strlen(src);
-	if (dstsize != 0)
+	if (!lst || !f)
+		return (NULL);
+	elem = (*f)(lst->content);
+	if (!(result = ft_lstnew(elem->content)))
+		return (NULL);
+	first = result;
+	lst = lst->next;
+	while (lst)
 	{
-		i = 0;
-		while (i < dstsize && src[i])
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		if (i < dstsize && !src[i])
-			i++;
-		dst[i - 1] = '\0';
+		elem = (*f)(lst->content);
+		if (!(result->next = ft_lstnew(elem->content)))
+			return (NULL);
+		result = result->next;
+		lst = lst->next;
 	}
-	return (length);
+	return (first);
 }
