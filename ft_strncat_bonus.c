@@ -6,11 +6,10 @@
 /*   By: charoua <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 11:28:28 by caroua            #+#    #+#             */
-/*   Updated: 2019/10/11 20:47:15 by charoua          ###   ########.fr       */
+/*   Updated: 2019/10/18 19:17:06 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 char	*ft_strncat(char *s1, const char *s2, size_t n)

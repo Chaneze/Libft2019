@@ -6,11 +6,10 @@
 /*   By: caroua <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 20:49:30 by caroua            #+#    #+#             */
-/*   Updated: 2019/10/11 20:48:01 by charoua          ###   ########.fr       */
+/*   Updated: 2019/10/18 19:16:50 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 char	*ft_strncpy(char *dst, const char *src, size_t len)

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charoua <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: charoua <charoua@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 13:43:10 by charoua           #+#    #+#             */
-/*   Updated: 2019/10/11 20:54:06 by charoua          ###   ########.fr       */
+/*   Updated: 2019/10/21 17:40:53 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-#include <string.h>
+# include <string.h>
 # define TRUE 1
 # define FALSE 0
 
@@ -66,33 +66,12 @@ void				ft_lstadd_back(t_list **alst, t_list *new);
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
-t_list				*ft_lstmap(t_list *lst, t_list *(*f)(void *));
+t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
+					void (*del)(void *));
 
 void				ft_striter(char *s, void (*f)(char *));
 char				*ft_strncpy(char *dst, const char *src, size_t len);
 char				*ft_strncat(char *s1, const char *s2, size_t n);
 char				*ft_strrev(char *str);
-
-char				*ft_strcpy(char *dst, const char *src);
-char				*ft_strcat(char *s1, const char *s2);
-char				*ft_strstr(const char *haystack, const char *needle);
-char				*ft_strmap(char const *s, char (*f)(char));
-char				*ft_strnew(size_t size);
-void				ft_strdel(char **as);
-void				ft_strclr(char *s);
-void				ft_striteri(char *s, void (*f)(unsigned int, char *));
-int					ft_strcmp(const char *s1, const char *s2);
-int					ft_strequ(char const *s1, char const *s2);
-int					ft_strnequ(char const *s1, char const *s2, size_t n);
-void				*ft_memalloc(size_t size);
-void				ft_memdel(void **ap);
-void				ft_putchar(char c);
-void				ft_putstr(char const *s);
-void				ft_putendl(char const *s);
-void				ft_putnbr(int n);
-int					ft_isupper(int c);
-int					ft_islower(int c);
-int					ft_ispositiv(int c);
-int					ft_isnegativ(int c);
 
 #endif

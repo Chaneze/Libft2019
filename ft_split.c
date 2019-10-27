@@ -6,7 +6,7 @@
 /*   By: charoua <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 14:37:10 by charoua           #+#    #+#             */
-/*   Updated: 2019/10/11 20:58:42 by charoua          ###   ########.fr       */
+/*   Updated: 2019/10/20 17:30:44 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ char			**ft_split(char const *s, char c)
 	i = 0;
 	j = 0;
 	if (!s || !(dst = (char **)malloc(sizeof(char *) * (ft_nb_w(s, c) + 1))))
-		dst = NULL;
+		return (NULL);
 	while (s[i] != '\0')
 	{
 		while (s[i] == c && s[i])
@@ -88,7 +88,7 @@ char			**ft_split(char const *s, char c)
 			k = 0;
 			if (!(dst[j] = (char *)malloc(sizeof(char) * (ft_s(s, c, i) + 1))))
 				return (ft_free_dst(dst, j));
-			while (s[i] != c && s[i] && dst)
+			while (s[i] != c && s[i])
 				dst[j][k++] = s[i++];
 			dst[j++][k] = '\0';
 		}

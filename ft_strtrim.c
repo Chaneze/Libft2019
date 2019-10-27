@@ -6,29 +6,40 @@
 /*   By: charoua <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 12:01:11 by charoua           #+#    #+#             */
-/*   Updated: 2019/10/11 15:28:38 by charoua          ###   ########.fr       */
+/*   Updated: 2019/10/27 19:26:36 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+static int	ft_check_set(char c, const char *set)
 {
-	size_t beg;
-	size_t ends1;
-	size_t endset;
+	while (*set)
+	{
+		if (c == *set)
+			return (TRUE);
+		set++;
+	}
+	return (FALSE);
+}
+
+char		*ft_strtrim(char const *s1, char const *set)
+{
+	size_t	beg;
+	size_t	end;
+	char	*trim;
 
 	beg = 0;
 	if (!s1)
-		return (NULL);
-	ends1 = ft_strlen(s1) - 1;
-	endset = ft_strlen(set) - 1;
-	while ((s1[beg] == set[beg]) && s1[beg] && set[beg])
+		return (trim = ft_strdup("\0"));
+	if (!set)
+		return (trim = ft_strdup(s1));
+	end = ft_strlen(s1) - 1;
+	while (s1[beg] && ft_check_set(s1[beg], set))
 		beg++;
-	while ((s1[ends1] == set[endset]) && s1[ends1] && set[endset])
-	{
-		ends1--;
-		endset--;
-	}
-	return (ft_substr(s1, beg, (ends1 - beg + 1)));
+	if (s1[beg] == '\0')
+		return (trim = ((char *)s1) + beg);
+	while (ft_check_set(s1[end], set))
+		end--;
+	return (ft_substr(s1, beg, (end - beg + 1)));
 }

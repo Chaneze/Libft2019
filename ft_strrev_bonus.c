@@ -6,12 +6,11 @@
 /*   By: charoua <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 12:15:06 by caroua            #+#    #+#             */
-/*   Updated: 2019/10/11 20:48:46 by charoua          ###   ########.fr       */
+/*   Updated: 2019/10/18 19:10:44 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
 char	*ft_strrev(char *str)
 {

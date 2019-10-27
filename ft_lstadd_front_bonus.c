@@ -6,7 +6,7 @@
 /*   By: charoua <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:10:50 by charoua           #+#    #+#             */
-/*   Updated: 2019/10/11 15:35:25 by charoua          ###   ########.fr       */
+/*   Updated: 2019/10/13 12:33:15 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	new->next = *alst;
-	*alst = new;
+	if (alst && new)
+	{
+		new->next = *alst;
+		*alst = new;
+	}
 }

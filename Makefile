@@ -6,12 +6,11 @@
 #    By: charoua <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/10 13:16:59 by charoua           #+#    #+#              #
-#    Updated: 2019/10/11 20:43:13 by charoua          ###   ########.fr        #
+#    Updated: 2019/10/18 19:08:07 by charoua          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 			libft.a
-NAME_BONUS = 	libft_bonus.a
 
 HEADER = 		libft.h
 
@@ -68,25 +67,17 @@ SRC_BONUS = 	ft_lstadd_back_bonus.c \
 				ft_strncat_bonus.c \
 				ft_strrev_bonus.c
 
-RED = 			\033[31m
-GREEN = 		\033[32m
-NOC = 			\033[0m
-
 OBJ = 			$(SRC:.c=.o)
 
 OBJ_BONUS = 	$(SRC_BONUS:.c=.o)
 
 all: 		$(NAME)
 
-bonus: 		$(NAME_BONUS)
+bonus: 		$(OBJ) $(OBJ_BONUS)
+	@ar -rcs $(NAME) $^
 
 $(NAME): 	$(OBJ)
 	@ar -rcs $@ $^
-	@echo "$(GREEN)$@ is ready !$(NOC)"
-
-$(NAME_BONUS): $(OBJ_BONUS)
-	@ar -rcs $@ $^
-	@echo "$(GREEN)$@ is ready !$(NOC)"
 
 $(OBJ): %.o: %.c $(HEADER) Makefile
 	@$(CC) $(CFLAGS) -c $< -o $@
@@ -95,16 +86,12 @@ $(OBJ_BONUS): %.o: %.c $(HEADER) Makefile
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@echo "$(RED)obj deleted !$(NOC)"
 	@$(RM) $(OBJ)
 	@$(RM) $(OBJ_BONUS)
 
 fclean: clean
-	@echo "$(RED)$(NAME) deleted !$(NOC)"
 	@$(RM) $(NAME)
-	@$(RM) $(NAME_BONUS)
 
 re: fclean all
 
 .PHONY: all clean fclean re
-//.SILENT:

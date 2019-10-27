@@ -6,7 +6,7 @@
 /*   By: charoua <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:12:52 by charoua           #+#    #+#             */
-/*   Updated: 2019/10/11 21:00:24 by charoua          ###   ########.fr       */
+/*   Updated: 2019/10/18 17:48:18 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (lst)
+	if (lst && del)
 	{
 		(*del)(lst->content);
 		free(lst);
-		lst = NULL;
 	}
 }

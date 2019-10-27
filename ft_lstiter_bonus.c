@@ -6,7 +6,7 @@
 /*   By: charoua <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:56:53 by charoua           #+#    #+#             */
-/*   Updated: 2019/10/09 19:26:45 by charoua          ###   ########.fr       */
+/*   Updated: 2019/10/14 18:33:45 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	if (lst && f)
 	{
-		ft_lstiter(lst->next, f);
+		if (lst->next)
+			ft_lstiter(lst->next, f);
 		(*f)(lst->content);
 	}
 }
