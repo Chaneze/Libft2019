@@ -6,7 +6,7 @@
 /*   By: charoua <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 14:11:53 by charoua           #+#    #+#             */
-/*   Updated: 2019/10/21 18:49:34 by charoua          ###   ########.fr       */
+/*   Updated: 2019/10/11 20:57:32 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putendl_fd(char *s, int fd)
 {
 	if (s != NULL)
 	{
-		write(fd, s, ft_strlen(s));
-		write(fd, "\n", 1);
+		ft_putstr_fd(s, fd);
+		ft_putchar_fd('\n', fd);
 	}
 }

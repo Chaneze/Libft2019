@@ -6,7 +6,7 @@
 /*   By: charoua <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 12:01:54 by charoua           #+#    #+#             */
-/*   Updated: 2019/10/21 18:26:09 by charoua          ###   ########.fr       */
+/*   Updated: 2019/10/20 15:35:27 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,17 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void *new;
+	void	*dst;
+	size_t	len;
 
-	new = NULL;
-	if (!(new = (void*)malloc(count * size)))
-		return (new);
-	ft_bzero(new, count * size);
-	return (new);
+	if (count == 0 || size == 0)
+	{
+		count = 1;
+		size = 1;
+	}
+	len = count * size;
+	dst = malloc(len);
+	if (dst != NULL)
+		ft_memset(dst, 0, len);
+	return (dst);
 }

@@ -6,7 +6,7 @@
 /*   By: charoua <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 12:01:11 by charoua           #+#    #+#             */
-/*   Updated: 2019/10/27 19:40:53 by charoua          ###   ########.fr       */
+/*   Updated: 2019/10/30 12:02:33 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char		*ft_strtrim(char const *s1, char const *set)
 
 	beg = 0;
 	if (!s1)
-		return (ft_strdup("\0"));
+		return (0);
 	if (!set)
 		return (ft_strdup(s1));
 	end = ft_strlen(s1) - 1;

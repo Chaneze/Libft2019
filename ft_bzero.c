@@ -6,7 +6,7 @@
 /*   By: charoua <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:12:43 by charoua           #+#    #+#             */
-/*   Updated: 2019/10/21 18:56:54 by charoua          ###   ########.fr       */
+/*   Updated: 2019/10/20 13:34:09 by charoua          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,5 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t			i;
-	unsigned char	*tmp;
-
-	tmp = (unsigned char*)s;
-	i = 0;
-	while (i < n)
-	{
-		tmp[i] = '\0';
-		i++;
-	}
+	ft_memset(s, 0, n);
 }
